@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>NInja Gold</title>
+</head>
+
+<body>
+
+    <h1>Your Gold: {{request.session.gold}}</h1>
+    
+    <div style="display: inline; vertical-align: top">
+
+        <form action="/process_money" method="post">
+            {%csrf_token%}
+            <h2>FARM</h2>
+            <p>Earn from 10-20 golds</p>
+            <input type="submit" value="Find Gold">
+            <input type="hidden" name="location" value="farm">
+        </form>
+            <br>
+            <br>
+        <form action="/process_money" method="post">
+            {%csrf_token%}
+            <h2>CAVE</h2>
+            <p>Earn from 5-10 golds</p>
+            <input type="submit" value="Find Gold">
+            <input type="hidden" name="location" value="cave">
+        </form>
+            <br>
+            <br>
+        <form action="/process_money" method="post">
+            {%csrf_token%}
+            <h2>HOUSE</h2>
+            <p>Earn from 2-5 golds</p>
+            <input type="submit" value="Find Gold">
+            <input type="hidden" name="location" value="house">
+        </form>
+            <br>
+            <br>
+        <form action="/process_money" method="post">
+            {%csrf_token%}
+            <h2>CASINO</h2>
+            <p>Earn/Lose from 0-50 golds</p>
+            <input type="submit" value="Find Gold">
+            <input type="hidden" name="location" value="casino">
+        </form>
+
+    </div>
+    <br>
+    <br>
+    <div>
+        Activities:
+        {% for x in request.session.list %}
+        <p style="color: {{x.color}}">{{x.input}}</p>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <form action="/reset" method="post">
+        {%csrf_token%}
+        <input type="submit" value="RESET">
+    </form>
+    
+</body>
+</html>
