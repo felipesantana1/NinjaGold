@@ -21,7 +21,7 @@ def calculate(request):
         request.session['gold'] += gold
         cash = {
 
-            'input': "Earned "+str(gold)+"golds from the farm!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
+            'input': "Earned "+str(gold)+" golds from the farm!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
             'color': 'green'
 
         }
@@ -57,7 +57,7 @@ def calculate(request):
             request.session['gold'] += gold
             cash = {
 
-            'input': "Etered a casino and won "+str(gold)+" golds from the casino!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
+            'input': "Entered a casino and won "+str(gold)+" golds from the casino!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
             'color': 'green'
 
             }
@@ -68,7 +68,7 @@ def calculate(request):
             if request.session['gold'] <= 0:
                 cash = {
 
-                    'input': "Earned a casino and lost all your gold... ouch!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
+                    'input': "Entered a casino and lost all your gold... ouch!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
                     'color': 'green'
                     
                     }
@@ -76,7 +76,7 @@ def calculate(request):
 
             else:
                 cash = {
-                    'input': "Entered a casino and  "+str(gold)+" golds from the casino!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
+                    'input': "Entered a casino and lost  "+str(gold)+" golds from the casino!"+datetime.strftime(datetime.today(), '(%Y/%m/%d %I:%M %p)'),
                     'color': 'red'
                     }
 
